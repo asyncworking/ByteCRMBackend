@@ -3,7 +3,8 @@ const express = require('express');
 const { 
 	addMeeting,
 	getAllMeetings,
-	getMeetings,
+  getMeetings,
+  getMeetingsByUserId,
 	updateMeeting,
 	deleteMeeting,
 	updateContacts,
@@ -16,6 +17,7 @@ const router = express.Router();
 router.post('/', addMeeting);
 router.get('/', getAllMeetings);
 router.get('/:id',getMeetings);
+router.get('./meetings/user/:id',getMeetingsByUserId)
 router.put('/:id',updateMeeting);
 router.delete('/:id',deleteMeeting);
 router.put('/:meetingId/contacts/:contactId', updateContacts);

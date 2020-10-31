@@ -41,6 +41,18 @@ async function getMeetings(req, res) {
 	
 }
 
+async function getMeetingsByUserId(req, res) { 
+  const { id } = req.params;
+  const meetings = await Meeting.find({user: id})
+    .populate('contacts')
+    .exec();
+  
+  if (!meetings) {
+    return res.status(404).json(id);
+  }
+  return res.status(200).json(meetings);
+}
+
 async function updateMeeting(req, res) {
     const { id } = req.params;
     const {date,time,duration,description} = req.body;
@@ -118,7 +130,8 @@ async function removeContacts(req, res) {
 module.exports = {
 	addMeeting,
 	getAllMeetings,
-	getMeetings,
+  getMeetings,
+  getMeetingsByUserId,
 	updateMeeting,
 	deleteMeeting,
 	updateContacts,

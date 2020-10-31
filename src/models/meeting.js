@@ -7,7 +7,6 @@ const meetingSchema = new mongoose.Schema(
 			required: true,
 		  },
 
-
 		title: {
 			type: String,
 			required: true
@@ -20,13 +19,13 @@ const meetingSchema = new mongoose.Schema(
 		
 		user:{type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	
-
-        contacts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Contact' }],
+    contacts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Contact' }],
 	
 		date: {
 			type: String,
 			required: true,
-		},
+    },
+    
 		duration: {
 			type: String,
 			required: true,
@@ -35,7 +34,8 @@ const meetingSchema = new mongoose.Schema(
 		time:{
 			type: String,
 			required: true
-		},
+    },
+    
 		__v: {
 			type: Number,
 			select: false
