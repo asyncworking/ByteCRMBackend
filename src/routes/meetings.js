@@ -17,7 +17,7 @@ const router = express.Router();
 router.post('/', addMeeting);
 router.get('/', getAllMeetings);
 router.get('/:id',getMeetings);
-router.get('./meetings/user/:id',getMeetingsByUserId)
+router.get('/user/:id',getMeetingsByUserId);
 router.put('/:id',updateMeeting);
 router.delete('/:id',deleteMeeting);
 router.put('/:meetingId/contacts/:contactId', updateContacts);
