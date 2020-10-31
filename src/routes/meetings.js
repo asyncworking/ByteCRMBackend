@@ -4,7 +4,7 @@ const {
 	addMeeting,
 	getAllMeetings,
   getMeetings,
-  getMeetingsByUserId,
+  getTodayMeetingsByUserId,
 	updateMeeting,
 	deleteMeeting,
 	updateContacts,
@@ -17,7 +17,7 @@ const router = express.Router();
 router.post('/', addMeeting);
 router.get('/', getAllMeetings);
 router.get('/:id',getMeetings);
-router.get('/user/:id',getMeetingsByUserId);
+router.get('/user/:id',getTodayMeetingsByUserId);
 router.put('/:id',updateMeeting);
 router.delete('/:id',deleteMeeting);
 router.put('/:meetingId/contacts/:contactId', updateContacts);

@@ -41,9 +41,15 @@ async function getMeetings(req, res) {
 	
 }
 
-async function getMeetingsByUserId(req, res) { 
+async function getTodayMeetingsByUserId(req, res) { 
   const { id } = req.params;
-  const meetings = await Meeting.find({user: id})
+  let timestamp = new Date();
+  const year = timestamp.getFullYear();
+  const month = timestamp.getMonth() + 1;
+  const date = timestamp.getDate();
+  const today = year + '-' + month + '-' + date;
+  
+  const meetings = await Meeting.find({ user: id, date: today })
     .populate('contacts')
     .exec();
   
@@ -131,7 +137,7 @@ module.exports = {
 	addMeeting,
 	getAllMeetings,
   getMeetings,
-  getMeetingsByUserId,
+  getTodayMeetingsByUserId,
 	updateMeeting,
 	deleteMeeting,
 	updateContacts,
