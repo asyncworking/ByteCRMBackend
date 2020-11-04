@@ -57,7 +57,6 @@ async function searchCompanyByUserId(req, res) {
 
   let findCompanies = [];
   for (let i in companies) {
-    console.log(companies[i].companyDomain);
     if (
       companies[i].name.toUpperCase().includes(UpperCaseKeywords) ||
       companies[i].companyDomain && companies[i].companyDomain.toUpperCase().includes(UpperCaseKeywords)
