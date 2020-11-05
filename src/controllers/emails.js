@@ -87,7 +87,7 @@ async function deleteEmail(req, res) {
             }
         }
     ).exec();
-    return res.sendStatus(204);
+    return res.status(204).json(email);
 }
 
 

@@ -35,6 +35,19 @@ async function createDeal(req, res) {
     return res.status(200).json(resDeal);
 };
 
+async function updateDeal(req, res) {
+    const { id } = req.params;
+    const {  name, stage, amount, closeDate, dealType, products } = req.body;
+    const newDeal = await Deal.findByIdAndUpdate(
+        id,
+        { name, stage, amount, closeDate, dealType, products },
+    ).exec();
+    if (!newDeal) {
+        return res.status(404).json('Deal not found');
+    }
+    return res.status(200).json(newDeal);
+}
+
 async function getDealsById(req, res) {
     const { id } = req.params;
     deals = await Deal.find({ $or:[{contacts: id},{company:id}]})
@@ -87,5 +100,6 @@ async function deleteDeal(req, res) {
 module.exports = {
     createDeal,
     getDealsById,
-    deleteDeal
+    deleteDeal,
+    updateDeal
 }
