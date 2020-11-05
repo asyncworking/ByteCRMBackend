@@ -56,6 +56,8 @@ const schema = new mongoose.Schema({
 
   tasks: [{type: mongoose.Schema.Types.ObjectId, ref: 'Task'}],
 
+  deals: [{ type: mongoose.Schema.Types.ObjectId, ref: "Deal" }],
+
   __v: {
     type: Number,
     select: false,
@@ -65,7 +67,8 @@ const schema = new mongoose.Schema({
     toJSON: {
       virtuals: true
     }
-  });
+  }
+);
 
 //instance method and static method
 //Model.static

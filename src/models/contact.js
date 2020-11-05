@@ -65,6 +65,8 @@ const schema = new mongoose.Schema(
 
     emailLogs: [{ type: mongoose.Schema.Types.ObjectId, ref: "Email" }],
 
+    deals: [{ type: mongoose.Schema.Types.ObjectId, ref: "Deal" }],
+
     company: { type: mongoose.Schema.Types.ObjectId, ref: "Company" },
 
     __v: {
