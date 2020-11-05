@@ -100,7 +100,7 @@ async function addContacts(contactId, emailId) {
     await contact.save();
 };
 
-async function updateContacts(req, res) {
+async function updateContactsFromEmail(req, res) {
     const { contactId, emailId } = req.params;
     const contact = await Contact.findById(contactId).exec();
     const email = await Email.findById(emailId).exec();
@@ -115,7 +115,7 @@ async function updateContacts(req, res) {
 };
 
 
-async function removeContacts(req, res) {
+async function removeContactsFromEmail(req, res) {
     const { contactId, emailId } = req.params;
     const contact = await Contact.findById(contactId).exec();
     const email = await Email.findById(emailId).exec();
@@ -146,8 +146,8 @@ module.exports = {
     getAllEmailLogs,
     updateEmail,
     deleteEmail,
-    updateContacts,
-    removeContacts,
+    updateContactsFromEmail,
+    removeContactsFromEmail,
     getEmailsByContactId,
     getEmailsByMultiContacts,
 }
