@@ -58,6 +58,8 @@ const schema = new mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId, ref: 'Contact' 
        }],
 
+    deals: [{ type: mongoose.Schema.Types.ObjectId, ref: "Deal" }],
+
     __v: {
       type: Number,
       select: false,
