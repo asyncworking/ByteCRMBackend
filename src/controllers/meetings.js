@@ -128,7 +128,7 @@ async function deleteMeeting(req, res) {
   }
 
 
-async function updateContacts(req, res) {
+async function updateContactsFromMeeting(req, res) {
     const { contactId, meetingId } = req.params;
     const contact = await Contact.findById(contactId).exec();
     const meeting = await Meeting.findById(meetingId).exec();
@@ -142,7 +142,7 @@ async function updateContacts(req, res) {
     return res.status(200).json(meeting);
 };
 
-async function removeContacts(req, res) {
+async function removeContactsFromMeeting(req, res) {
     const { contactId, meetingId } = req.params;
     const contact = await Contact.findById(contactId).exec();
     const meeting = await Meeting.findById(meetingId).exec();
@@ -174,7 +174,7 @@ module.exports = {
 	getMeetings,
 	updateMeeting,
 	deleteMeeting,
-	updateContacts,
-    removeContacts,
+	updateContactsFromMeeting,
+    removeContactsFromMeeting,
     getMeetingsByMultiContacts,
 }

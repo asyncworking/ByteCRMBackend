@@ -5,10 +5,10 @@ const {
     getAllEmailLogs, 
     getEmailsByContactId,
     getEmailsByMultiContacts,
-    updateContacts,
+    updateContactsFromEmail,
     updateEmail,
     deleteEmail,
-    removeContacts,
+    removeContactsFromEmail,
 } = require('../controllers/emails');
 
 const router = express.Router();
@@ -18,8 +18,8 @@ router.get('/:id', getEmailsByContactId);
 router.get('/contacts/:ids',getEmailsByMultiContacts);
 router.post('/', logEmail);
 router.put('/:id',updateEmail);
-router.put('/:emailId/contacts/:contactId', updateContacts);
+router.put('/:emailId/contacts/:contactId', updateContactsFromEmail);
 router.delete('/:id', deleteEmail);
-router.delete('/:emailId/contacts/:contactId', removeContacts);
+router.delete('/:emailId/contacts/:contactId', removeContactsFromEmail);
 
 module.exports = router;

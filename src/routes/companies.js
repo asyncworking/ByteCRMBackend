@@ -7,8 +7,8 @@ const {
        getAllCompanies, 
        updateCompany, 
        deleteCompany,
-       addContact,
-       removeContact,
+       addContactToCompany,
+       removeContactFromCompany,
        searchCompanyByUserId,
        multiRefChange,
     } = require('../controllers/companies');//导入功能
@@ -21,8 +21,8 @@ router.post('/', addCompany);
 router.put('/:code',updateCompany);
 router.delete('/:code', deleteCompany); 
 router.get('/search/:userId/:keywords', searchCompanyByUserId);
-router.post('/:code/contacts/:id', addContact);
-router.delete('/:code/contacts/:id', removeContact);
+router.post('/:code/contacts/:id', addContactToCompany);
+router.delete('/:code/contacts/:id', removeContactFromCompany);
 router.put('/:code/ref',multiRefChange);
 
 
