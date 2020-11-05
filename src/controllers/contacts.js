@@ -126,7 +126,7 @@ async function updateUser(req, res) {
   return res.json(contact);
 }
 
-async function addCompany(req, res) {
+async function addCompanyToContact(req, res) {
   const { id, code } = req.params;
   const contact = await Contact.findById(id).exec();
   const company = await Company.findById(code).exec();
@@ -144,7 +144,7 @@ async function addCompany(req, res) {
   return res.status(200).json(contact);
 }
 
-async function removeCompany(req, res) {
+async function removeCompanyFromContact(req, res) {
   const { id, code } = req.params;
   const contact = await Contact.findById(id).exec();
   const company = await Company.findById(code).exec();
@@ -168,8 +168,8 @@ module.exports = {
   getAllContacts,
   updateContact,
   deleteContact,
-  addCompany,
+  addCompanyToContact,
   updateUser,
   searchContactByUserId,
-  removeCompany,
+  removeCompanyFromContact,
 };

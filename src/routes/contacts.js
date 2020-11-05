@@ -6,10 +6,10 @@ const {
     getAllContacts,
     updateContact,
     deleteContact,
-    addCompany,
+    addCompanyToContact,
     updateUser,
     searchContactByUserId,
-    removeCompany,
+    removeCompanyFromContact,
 } = require('../controllers/contacts');
 
 const router = express.Router();
@@ -21,7 +21,7 @@ router.post('/', addContact);
 router.put('/:id', updateContact);
 router.delete('/:id', deleteContact);
 router.put('/:contactId/users/:userId', updateUser);
-router.post('/:id/companies/:code', addCompany);
-router.delete('/:id/companies/:code', removeCompany);
+router.post('/:id/companies/:code', addCompanyToContact);
+router.delete('/:id/companies/:code', removeCompanyFromContact);
 
 module.exports = router;
